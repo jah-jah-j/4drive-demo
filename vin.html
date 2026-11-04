@@ -74,7 +74,7 @@
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
       <button type="button" data-lang="ge" aria-pressed="false">GE</button>
     </div>
-    <a class="btn btn--sm header-cta" href="index.html#booking" data-i18n="btn.book">Записаться</a>
+    <a class="btn btn--sm header-cta" href="#booking" data-i18n="btn.book">Записаться</a>
     <button class="burger" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Открыть меню"><span></span></button>
   </div>
 </header>
@@ -93,7 +93,7 @@
     <button type="button" data-lang="ge" aria-pressed="false">GE</button>
   </div>
   <div class="mobile-menu__channels">
-    <a class="btn" href="index.html#booking" data-i18n="btn.book">Записаться</a>
+    <a class="btn" href="#booking" data-i18n="btn.book">Записаться</a>
     <a class="btn" href="#" data-link="telegram" data-i18n="btn.telegram">Telegram</a>
     <a class="btn" href="#" data-link="whatsapp" data-i18n="btn.whatsapp">WhatsApp</a>
   </div>
@@ -164,7 +164,83 @@
       </div>
       <div class="vin-cta">
         <p id="vin-cta-car" class="vin-cta__car"></p>
-        <a id="vin-cta-link" class="btn btn--dark" href="index.html#booking">Записаться с этим автомобилем</a>
+        <a id="vin-cta-link" class="btn btn--dark" href="#booking">Записаться с этим автомобилем</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ЗАПИСЬ -->
+<section class="section" id="booking">
+  <div class="container">
+    <div class="booking">
+      <div class="reveal">
+        <h2 class="h-xl">Запись в автосервис</h2>
+        <p class="lead">Заполните форму и выберите способ связи. Мы подготовим сообщение для Telegram или WhatsApp, а если удобнее поговорить, закажите звонок.</p>
+        <ol class="booking__steps">
+          <li><div><strong>Заявка.</strong> <span>Укажите автомобиль, проблему и удобное время.</span></div></li>
+          <li><div><strong>Подтверждение.</strong> <span>Подтвердим время или предложим другое.</span></div></li>
+          <li><div><strong>Осмотр.</strong> <span>Назовём стоимость и начнём работу после вашего согласия.</span></div></li>
+        </ol>
+      </div>
+      <div class="form-card reveal" style="--d:.1s">
+        <form id="booking-form" class="form-grid" novalidate>
+          <div class="field-trap" aria-hidden="true"><label>Сайт <input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+          <div class="field" data-field="name">
+            <label for="f-name">Как к вам обращаться <span class="req">*</span></label>
+            <input class="input" id="f-name" name="name" type="text" autocomplete="name" required>
+            <p class="field-error"></p>
+          </div>
+          <div class="field" data-field="car">
+            <label for="f-car">Автомобиль <span class="req">*</span></label>
+            <input class="input" id="f-car" name="car" type="text" placeholder="Например, Toyota Camry 2015" required>
+            <p class="hint" data-car-note hidden>Данные из проверки VIN. Их можно изменить.</p>
+            <p class="field-error"></p>
+          </div>
+          <div class="field span-2">
+            <label for="f-service">Услуга</label>
+            <select class="select" id="f-service" name="service">
+              <option value="">Нужна консультация</option>
+              <option>Плановое ТО</option>
+              <option>Ходовая</option>
+              <option>Тормоза</option>
+              <option>Двигатель</option>
+              <option>Электрика</option>
+              <option>Кондиционер</option>
+              <option>Шиномонтаж</option>
+              <option>Диагностика</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-date">Дата</label>
+            <input class="input" id="f-date" name="date" type="date">
+          </div>
+          <div class="field">
+            <label for="f-time">Время</label>
+            <input class="input" id="f-time" name="time" type="time">
+          </div>
+          <div class="field span-2">
+            <label for="f-comment">Описание проблемы</label>
+            <textarea class="textarea" id="f-comment" name="comment" rows="3" placeholder="Например, стук справа на неровностях или лампа на панели"></textarea>
+          </div>
+          <fieldset class="channel-pick field span-2" data-field="channel">
+            <legend>Как с вами связаться <span class="req">*</span></legend>
+            <div class="channel-pick__opts">
+              <label class="channel-opt"><input type="radio" name="channel" value="telegram"><span><svg aria-hidden="true"><use href="#i-send"/></svg>Telegram</span></label>
+              <label class="channel-opt"><input type="radio" name="channel" value="whatsapp"><span><svg aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp</span></label>
+              <label class="channel-opt"><input type="radio" name="channel" value="call"><span><svg aria-hidden="true"><use href="#i-phone"/></svg>Перезвоните мне</span></label>
+            </div>
+            <p class="field-error"></p>
+          </fieldset>
+          <div class="field span-2" data-field="phone" hidden>
+            <label for="f-phone">Ваш телефон <span class="req">*</span></label>
+            <input class="input" id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+995 5XX XXX XXX" required>
+            <p class="field-error"></p>
+          </div>
+          <div class="form-foot span-2">
+            <button class="btn btn--dark" type="submit"><span data-submit-label data-i18n="form.send">Отправить заявку</span></button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -187,7 +263,7 @@
           <li><a href="services.html" data-i18n="nav.services">Услуги</a></li>
           <li><a href="vin.html">Проверка VIN</a></li>
           <li><a href="guide.html" data-i18n="nav.guide">Гайд</a></li>
-          <li><a href="index.html#booking" data-i18n="btn.book">Записаться</a></li>
+          <li><a href="#booking" data-i18n="btn.book">Записаться</a></li>
         </ul>
       </div>
       <div>

@@ -308,7 +308,7 @@
     const car = parts.length ? parts.join(" ") : "Авто";
     ctaCar.textContent = car;
     const q = `${car}, VIN ${vin}`;
-    ctaLink.href = `index.html?car=${encodeURIComponent(q)}#booking`;
+    ctaLink.href = `vin.html?car=${encodeURIComponent(q)}#booking`;
   }
 
   async function run(raw) {
